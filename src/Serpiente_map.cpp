@@ -76,7 +76,7 @@ void clear_map(char map_array[MAP_HEIGHT][MAP_WIDTH])
 
 void update_Serpiente_head(char map_array[MAP_HEIGHT][MAP_WIDTH], Serpiente *serpiente)
 {
-    char Serpiente_head_char = Serpiente_CHAR;
+    char Serpiente_head_char = serpiente_CHAR;
     enum Direccion direccion = Serpiente->get_direccion();
     switch (direccion)
     {
