@@ -1,0 +1,35 @@
+@startuml
+class Jugador
+class Juego {
+    + Comenzar
+}
+class Snake {
+    + Avanzar
+}
+class Eslabon
+class Manzana {
+    + Aumentar
+}
+class Record
+class Perimetro
+class Musica
+class Puntuacion
+class Colision{
+    + Lose
+    }
+
+
+Snake o-- Manzana
+Snake *-- Eslabon
+Manzana --|> Eslabon 
+Manzana --|> Puntuacion
+Record --|> Puntuacion
+Jugador --|> Snake
+Juego *-- Jugador
+Juego *-- Musica
+Puntuacion --* Record
+Perimetro --|> Colision
+Eslabon --|> Colision 
+
+
+@enduml

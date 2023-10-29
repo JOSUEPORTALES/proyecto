@@ -94,7 +94,7 @@ void update_Serpiente_head(char map_array[MAP_HEIGHT][MAP_WIDTH], Serpiente *ser
         break;
     }
     pair<int, int> serpiente_head = serpiente->serpiente_head;
-    map_array[serpiente_head.first][serpiente_head.second] = Serpiente_head_char;
+    map_array[serpiente_head.first][serpiente_head.second] = serpiente_head_char;
 }
 
 void Serpiente_Map::update_score(void)
