@@ -77,7 +77,7 @@ void clear_map(char map_array[MAP_HEIGHT][MAP_WIDTH])
 void update_Serpiente_head(char map_array[MAP_HEIGHT][MAP_WIDTH], Serpiente *serpiente)
 {
     char Serpiente_head_char = serpiente_CHAR;
-    enum Direccion direccion = Serpiente->get_direccion();
+    enum Direccion direccion = serpiente->get_direccion();
     switch (direccion)
     {
     case West:
@@ -93,8 +93,8 @@ void update_Serpiente_head(char map_array[MAP_HEIGHT][MAP_WIDTH], Serpiente *ser
         Serpiente_head_char = SERPIENTE_HEAD_SOUTH;
         break;
     }
-    pair<int, int> Serpiente_head = serpiente->serpiente_head;
-    map_array[Serpiente_head.first][Serpiente_head.second] = Serpiente_head_char;
+    pair<int, int> serpiente_head = serpiente->serpiente_head;
+    map_array[serpiente_head.first][serpiente_head.second] = Serpiente_head_char;
 }
 
 void Serpiente_Map::update_score(void)
