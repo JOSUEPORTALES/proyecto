@@ -5,6 +5,8 @@
 //Descripcion : Implementacion de la clase Comida
 //==============================================================
 
-#include 'Comida.hpp'
+/*#include 'Comida.hpp'
 
 Comida
+*/
+

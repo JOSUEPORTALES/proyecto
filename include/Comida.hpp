@@ -5,7 +5,7 @@
 //Descripcion : Definicion de la clase Comida
 //==============================================================
 
-#include
+/*#include
 
 class Comida
 {
@@ -19,3 +19,4 @@ class Comida
         void spawnComida();
 
 }
+*/
