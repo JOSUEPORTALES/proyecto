@@ -14,23 +14,23 @@
 using namespace std;
 
 Serpiente serpiente;
-SerpienteMap Serpiente_map(&serpiente);
+Serpiente_Map Serpiente_map(&serpiente);
 
 void initialize()
 {
-    input_init();
-    input_enter_off();
+    Entrada_init();
+    Entrada_enter_off();
 }
 
 bool is_game_end()
 {
     bool result = false;
-    pair<int, int> Serpiente_head = Serpiente.Serpiente_head;
+    pair<int, int> Serpiente_head = serpiente.Serpiente_head;
     if (Serpiente_head.first < 0 || Serpiente_head.first >= MAP_HEIGHT || Serpiente_head.second < 0 || Serpiente_head.second >= MAP_WIDTH)
     {
         result = true;
     }
-    if (Serpiente.is_dead)
+    if (serpiente.is_dead)
     {
         result = true;
     }

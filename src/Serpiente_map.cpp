@@ -9,15 +9,15 @@
 
 using namespace std;
 
-Serpiente_map::Serpientemap(Serpiente *serpiente)
+Serpiente_Map::Serpiente_Map(Serpiente *serpiente)
 {
-    this->Serpiente = Serpiente;
+    this->serpiente = serpiente;
     clear_map(this->map_array);
     srand(time(NULL));
     update_Serpiente_food(true);
 }
 
-void SerpienteMap::redraw(void)
+void Serpiente_Map::redraw(void)
 {
     clear_map(this->map_array);
     for (int i = 0; i < MAP_END; i++)
@@ -25,15 +25,15 @@ void SerpienteMap::redraw(void)
         cout << endl;
     }
     update_score();
-    vector<pair<int, int>> Serpiente_parts = Serpiente->Serpiente_parts;
+    vector<pair<int, int>> Serpiente_parts = serpiente->Serpiente_parts;
     for (int i = 0; i < Serpiente_parts.size(); i++)
     {
         pair<int, int> tmp = Serpiente_parts[i];
-        map_array[tmp.first][tmp.second] = Serpiente_CHAR;
+        map_array[tmp.first][tmp.second] = SERPIENTE_CHAR;
     }
-    update_Serpiente_head(map_array, Serpiente);
+    update_Serpiente_head(map_array, serpiente);
     update_Serpiente_food(false);
-    map_array[Serpiente_food.first][Serpiente_food.second] = Serpiente_FOOD_CHAR;
+    map_array[Serpiente_food.first][Serpiente_food.second] = SERPIENTE_FOOD_CHAR;
     for (int i = 0; i < MAP_HEIGHT; i++)
     {
         for (int j = 0; j < MAP_WIDTH; j++)
@@ -44,7 +44,7 @@ void SerpienteMap::redraw(void)
     }
 }
 
-void SerpienteMap::update_Serpiente_food(bool force_update)
+void Serpiente_Map::update_Serpiente_food(bool force_update)
 {
     if (Serpiente->food_eaten || force_update)
     {
@@ -55,7 +55,7 @@ void SerpienteMap::update_Serpiente_food(bool force_update)
             if (map_array[random_i][random_j] == MAP_CHAR)
             {
                 Serpiente_food = make_pair(random_i, random_j);
-                Serpiente->set_Serpiente_food(Serpiente_food);
+                Serpiente->set_Serpiente_food(serpiente_food);
                 Serpiente->food_eaten = false;
                 break;
             }
@@ -74,30 +74,30 @@ void clear_map(char map_array[MAP_HEIGHT][MAP_WIDTH])
     }
 }
 
-void update_Serpiente_head(char map_array[MAP_HEIGHT][MAP_WIDTH], Serpiente *Serpiente)
+void update_Serpiente_head(char map_array[MAP_HEIGHT][MAP_WIDTH], Serpiente *serpiente)
 {
     char Serpiente_head_char = Serpiente_CHAR;
     enum Direccion direccion = Serpiente->get_direccion();
     switch (direccion)
     {
     case West:
-        Serpiente_head_char = Serpiente_HEAD_WEST;
+        Serpiente_head_char = SERPIENTE_HEAD_WEST;
         break;
     case North:
-        Serpiente_head_char = Serpiente_HEAD_NORTH;
+        Serpiente_head_char = SERPIENTE_HEAD_NORTH;
         break;
     case East:
-        Serpiente_head_char = Serpiente_HEAD_EAST;
+        Serpiente_head_char = SERPIENTE_HEAD_EAST;
         break;
     case South:
-        Serpiente_head_char = Serpiente_HEAD_SOUTH;
+        Serpiente_head_char = SERPIENTE_HEAD_SOUTH;
         break;
     }
-    pair<int, int> Serpiente_head = Serpiente->Serpiente_head;
+    pair<int, int> Serpiente_head = serpiente->serpiente_head;
     map_array[Serpiente_head.first][Serpiente_head.second] = Serpiente_head_char;
 }
 
-void SerpienteMap::update_score(void)
+void Serpiente_Map::update_score(void)
 {
-    cout << "Score:" << Serpiente->length << endl;
+    cout << "Score:" << serpiente->length << endl;
 }

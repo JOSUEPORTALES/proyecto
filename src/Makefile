@@ -1,2 +1,2 @@
 all:
-	g++ -std=c++11 main.cpp snake.cpp input.cpp snake_map.cpp -o snake -lpthread
+	g++ -std=c++11 main.cpp Serpiente.cpp Entrada.cpp Serpiente_map.cpp -o 
